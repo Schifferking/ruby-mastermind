@@ -1,8 +1,13 @@
-module Generable
-    COLORS = ['red', 'green', 'blue', 'pink', 'yellow', 'purple', 'orange', 'black', 'white', 'brown', 'gray']
+module Generable  
+  CODE_LENGTH = 6
+  COLORS = ['red', 'green', 'blue', 'pink', 'yellow', 'purple', 'orange', 'black', 'white', 'brown', 'gray']
 
   def generate_code
-    COLORS.sample(6)
+    COLORS.sample(CODE_LENGTH)
+  end
+
+  def code_length
+    CODE_LENGTH
   end
 end
 
@@ -41,6 +46,7 @@ class Mastermind
     computer.obtain_code
 
     @NUMBER_OF_TURNS.times do |n|
+      puts "Please enter a #{computer.code_length} colors code:"
       p "Turn #{n + 1}"
     end
   end
