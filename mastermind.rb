@@ -23,3 +23,8 @@ class Computer < Player
   def initialize
   end
 end
+
+class Mastermind
+  def initialize
+  end
+end
