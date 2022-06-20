@@ -9,9 +9,13 @@ end
 class Player
   include Generable
 
-  def initialize    
+  attr_reader :CODE
+  def initialize 
   end
-
+  
+  def obtain_code
+    @CODE = generate_code
+  end
 end
 
 class Human < Player
@@ -25,16 +29,27 @@ class Computer < Player
 end
 
 class Mastermind
-  def initialize
+  attr_accessor :computer, :human
+
+  def initialize(computer, human)
+    @computer = computer
+    @human = human
     @NUMBER_OF_TURNS = 12
   end
 
   def game
+    computer.obtain_code
+
     @NUMBER_OF_TURNS.times do |n|
       p "Turn #{n + 1}"
     end
   end
 end
 
-mastermind = Mastermind.new
-mastermind.game
+h = Human.new
+
+c = Computer.new
+
+m = Mastermind.new(c, h)
+
+m.game
