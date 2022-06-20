@@ -13,3 +13,13 @@ class Player
   end
 
 end
+
+class Human < Player
+  def initialize
+  end
+end
+
+class Computer < Player
+  def initialize
+  end
+end
