@@ -24,7 +24,7 @@ class Player
     @guess_code = []
 
     while guess_code.length < CODE_LENGTH
-      puts "Enter a color: "
+      print "Enter a color: "
       color = gets.chomp.downcase
       if COLORS.include?(color) && !guess_code.include?(color)
         guess_code.append(color)
@@ -58,21 +58,24 @@ class Mastermind
     if human.guess_code.eql?(computer.CODE)
       return true
     end
-  end
+  end  
 
   def game
     computer.obtain_code
 
     @NUMBER_OF_TURNS.times do |n|
-      puts "Turn #{n + 1}"
+      puts "Turn #{n + 1}\n"
 
       puts "Please enter a #{computer.CODE.length} colors code:"
 
-      puts "Your guess: #{human.enter_code}"
+      puts "\nYour guess: #{human.enter_code}\n"
 
       if verify_code
         puts "You guessed the code, you win!"
+
         break
+      else
+        puts "Incorrect code\n"
       end
     end
   end
