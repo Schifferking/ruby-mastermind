@@ -54,13 +54,26 @@ class Mastermind
     @NUMBER_OF_TURNS = 12
   end
 
+  def verify_code
+    if human.guess_code.eql?(computer.CODE)
+      return true
+    end
+  end
+
   def game
     computer.obtain_code
 
     @NUMBER_OF_TURNS.times do |n|
       puts "Turn #{n + 1}"
+
       puts "Please enter a #{computer.CODE.length} colors code:"
+
       puts "Your guess: #{human.enter_code}"
+
+      if verify_code
+        puts "You guessed the code, you win!"
+        break
+      end
     end
   end
 end
