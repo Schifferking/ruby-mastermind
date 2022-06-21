@@ -5,21 +5,33 @@ module Generable
   def generate_code
     COLORS.sample(CODE_LENGTH)
   end
-
-  def code_length
-    CODE_LENGTH
-  end
 end
 
 class Player
   include Generable
 
+  attr_accessor :guess_code
   attr_reader :CODE
+  
   def initialize 
   end
   
   def obtain_code
     @CODE = generate_code
+  end
+
+  def enter_code
+    @guess_code = []
+
+    while guess_code.length < CODE_LENGTH
+      puts "Enter a color: "
+      color = gets.chomp.downcase
+      if COLORS.include?(color) && !guess_code.include?(color)
+        guess_code.append(color)
+      end
+    end
+
+    @guess_code
   end
 end
 
@@ -46,8 +58,9 @@ class Mastermind
     computer.obtain_code
 
     @NUMBER_OF_TURNS.times do |n|
-      puts "Please enter a #{computer.code_length} colors code:"
-      p "Turn #{n + 1}"
+      puts "Turn #{n + 1}"
+      puts "Please enter a #{computer.CODE.length} colors code:"
+      puts "Your guess: #{human.enter_code}"
     end
   end
 end
