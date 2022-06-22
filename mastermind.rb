@@ -46,7 +46,7 @@ class Computer < Player
 end
 
 class Mastermind
-  attr_accessor :computer, :human
+  attr_accessor :computer, :human, :white_pegs, :red_pegs
 
   def initialize(computer, human)
     @computer = computer
@@ -58,7 +58,20 @@ class Mastermind
     if human.guess_code.eql?(computer.CODE)
       return true
     end
-  end  
+  end
+  
+  def calculate_pegs
+    @white_pegs = 0
+    @red_pegs = 0
+
+    computer.CODE.each_with_index do |color, index|
+      if color.eql?(human.guess_code[index])
+        @red_pegs += 1
+      elsif !color.eql?(human.guess_code[index]) && computer.CODE.include?(human.guess_code[index])
+        @white_pegs += 1
+      end
+    end
+  end
 
   def game
     computer.obtain_code
@@ -76,7 +89,17 @@ class Mastermind
         break
       else
         puts "Incorrect code\n"
+
+        calculate_pegs
+        
+        puts "You have #{red_pegs} red peg(s) and #{white_pegs} white peg(s)\n\n"
       end
+    end
+
+    if !verify_code
+      puts "You did not guess the code\n"
+
+      puts "The computer code is #{computer.CODE}"
     end
   end
 end
