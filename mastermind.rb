@@ -46,7 +46,7 @@ class Computer < Player
 end
 
 class Mastermind
-  attr_accessor :computer, :human, :white_pegs, :red_pegs
+  attr_accessor :computer, :human, :white_pegs, :red_pegs, :creator, :guesser
 
   def initialize(computer, human)
     @computer = computer
@@ -73,15 +73,34 @@ class Mastermind
     end
   end
 
+  def select_role
+    puts "Select one of these two options (use the number)\n1.Create the secret code\n2.Guess the secret code"
+
+    human_choice = gets.chomp.to_i
+
+    while human_choice == 0
+      puts "Select a valid option (1 or 2)"
+      human_choice = gets.chomp.to_i
+    end
+
+    if human_choice == 1
+      @creator = human
+      @guesser = computer
+    else
+      @creator = computer
+      @guesser = human
+    end
+  end
+
   def game
-    computer.obtain_code
+    creator.obtain_code
 
     @NUMBER_OF_TURNS.times do |n|
-      puts "Turn #{n + 1}\n"
+      puts "Turn #{n + 1}\n\n"
 
-      puts "Please enter a #{computer.CODE.length} colors code:"
+      puts "Please enter a #{creator.CODE.length} colors code"
 
-      puts "\nYour guess: #{human.enter_code}\n"
+      puts "\nYour guess: #{guesser.enter_code}\n"
 
       if verify_code
         puts "You guessed the code, you win!"
@@ -99,7 +118,7 @@ class Mastermind
     if !verify_code
       puts "You did not guess the code\n"
 
-      puts "The computer code is #{computer.CODE}"
+      puts "The creator code is #{creator.CODE}"
     end
   end
 end
@@ -109,5 +128,7 @@ h = Human.new
 c = Computer.new
 
 m = Mastermind.new(c, h)
+
+m.select_role
 
 m.game
