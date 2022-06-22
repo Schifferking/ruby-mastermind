@@ -38,6 +38,11 @@ end
 class Human < Player
   def initialize
   end
+
+  def obtain_code
+    puts "Please enter a #{CODE_LENGTH} colors code"
+    @CODE = enter_code
+  end
 end
 
 class Computer < Player
@@ -55,7 +60,7 @@ class Mastermind
   end
 
   def verify_code
-    if human.guess_code.eql?(computer.CODE)
+    if guesser.guess_code.eql?(creator.CODE)
       return true
     end
   end
