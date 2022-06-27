@@ -10,10 +10,11 @@ end
 class Player
   include Generable
 
-  attr_accessor :guess_code
+  attr_accessor :guess_code, :role
   attr_reader :CODE
   
-  def initialize 
+  def initialize
+    @role = ""
   end
   
   def obtain_code
@@ -46,7 +47,13 @@ class Human < Player
 end
 
 class Computer < Player
+  attr_accessor :combinations
+
   def initialize
+  end
+
+  def generate_combinations
+    @combinations = COLORS.repeated_permutation(CODE_LENGTH)    
   end
 end
 
@@ -90,22 +97,32 @@ class Mastermind
 
     if human_choice == 1
       @creator = human
+      human.role = "creator"      
       @guesser = computer
+      computer.role = "guesser"
     else
       @creator = computer
+      computer.role = "creator"
       @guesser = human
+      human.role = "guesser"
     end
   end
 
   def game
     creator.obtain_code
+    
+    if computer.role == "guesser"
+      computer.generate_combinations
+    end  
 
     @NUMBER_OF_TURNS.times do |n|
       puts "Turn #{n + 1}\n\n"
 
-      puts "Please enter a #{creator.CODE.length} colors code"
+      if human.role == "guesser"
+        puts "Please enter a #{creator.CODE.length} colors code"
 
-      puts "\nYour guess: #{guesser.enter_code}\n"
+        puts "\nYour guess: #{guesser.enter_code}\n"
+      end
 
       if verify_code
         puts "You guessed the code, you win!"
