@@ -1,4 +1,4 @@
-module Generable  
+module Generable
   CODE_LENGTH = 6
   COLORS = ['red', 'green', 'blue', 'pink', 'yellow', 'purple', 'orange', 'black', 'white', 'brown', 'gray']
 
@@ -53,7 +53,12 @@ class Computer < Player
   end
 
   def generate_combinations
-    @combinations = COLORS.repeated_permutation(CODE_LENGTH)    
+    @combinations = COLORS.repeated_permutation(CODE_LENGTH).to_a
+  end
+
+  def enter_code(code=[])
+    @guess_code = code
+    @guess_code
   end
 end
 
@@ -76,10 +81,10 @@ class Mastermind
     @white_pegs = 0
     @red_pegs = 0
 
-    computer.CODE.each_with_index do |color, index|
-      if color.eql?(human.guess_code[index])
+    creator.CODE.each_with_index do |color, index|
+      if color.eql?(guesser.guess_code[index])
         @red_pegs += 1
-      elsif !color.eql?(human.guess_code[index]) && computer.CODE.include?(human.guess_code[index])
+      elsif !color.eql?(guesser.guess_code[index]) && creator.CODE.include?(guesser.guess_code[index])
         @white_pegs += 1
       end
     end
@@ -97,7 +102,7 @@ class Mastermind
 
     if human_choice == 1
       @creator = human
-      human.role = "creator"      
+      human.role = "creator"
       @guesser = computer
       computer.role = "guesser"
     else
@@ -113,7 +118,7 @@ class Mastermind
     
     if computer.role == "guesser"
       computer.generate_combinations
-    end  
+    end
 
     @NUMBER_OF_TURNS.times do |n|
       puts "Turn #{n + 1}\n\n"
@@ -121,8 +126,17 @@ class Mastermind
       if human.role == "guesser"
         puts "Please enter a #{creator.CODE.length} colors code"
 
-        puts "\nYour guess: #{guesser.enter_code}\n"
+        guesser.enter_code
+
+      else
+        if n == 0
+          guesser.enter_code(["red", "red", "red", "green", "green", "green"])
+        else
+          # Enter new code
+        end
       end
+      
+      puts "\nYour guess: #{guesser.guess_code}\n"
 
       if verify_code
         puts "You guessed the code, you win!"
@@ -134,6 +148,13 @@ class Mastermind
         calculate_pegs
         
         puts "You have #{red_pegs} red peg(s) and #{white_pegs} white peg(s)\n\n"
+
+        # Remove combinations where a color is not in code
+        guesser.guess_code.uniq.each do |color|
+          if !creator.CODE.include?(color)
+            guesser.combinations.select! { |combination| !combination.include?(color) }
+          end
+        end
       end
     end
 
