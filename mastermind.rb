@@ -44,13 +44,9 @@ class Human < Player
 end
 
 class Computer < Player
-  attr_accessor :combinations, :colors_hash
+  attr_accessor :colors_hash
 
   def initialize
-  end
-
-  def generate_combinations
-    @combinations = COLORS.repeated_permutation(CODE_LENGTH).to_a
   end
 
   def enter_code(input_code = [])
@@ -115,8 +111,6 @@ class Mastermind
   def game
     creator.obtain_code
 
-    computer.generate_combinations if computer.role == 'guesser'
-
     @NUMBER_OF_TURNS.times do |n|
       puts "Turn #{n + 1}\n\n"
 
@@ -128,9 +122,10 @@ class Mastermind
       else
         # Computer enters code
         if n.zero?
-          guesser.enter_code(["red", "red", "red", "green", "green", "green"])
+          guesser.enter_code(guesser.generate_code)
         else
           # Enter new code
+          guesser.enter_code(guesser.generate_code)
         end
       end
 
@@ -146,15 +141,6 @@ class Mastermind
         calculate_pegs
 
         puts "You have #{red_pegs} red peg(s) and #{white_pegs} white peg(s)\n\n"
-
-        if computer.role == 'guesser'
-          # Remove combinations where a color is not in code
-          guesser.guess_code.uniq.each do |color|
-            unless creator.code.include?(color)
-              guesser.combinations.reject! { |combination| combination.include?(color) }
-            end
-          end
-        end
       end
     end
 
@@ -168,6 +154,6 @@ c = Computer.new
 
 m = Mastermind.new(c, h)
 
-m.asign_roles(m.ask_player_role)
+m.assign_roles(m.ask_player_role)
 
 m.game
