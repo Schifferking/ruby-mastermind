@@ -85,7 +85,7 @@ class Mastermind
     end
   end
 
-  def select_role
+  def ask_player_role
     puts "Select one of these two options (use the number)\n1.Create the secret code\n2.Guess the secret code"
 
     human_choice = gets.chomp.to_i
@@ -95,6 +95,10 @@ class Mastermind
       human_choice = gets.chomp.to_i
     end
 
+    human_choice
+  end
+
+  def assign_roles(human_choice)
     if human_choice == 1
       @creator = human
       human.role = 'creator'
@@ -164,6 +168,6 @@ c = Computer.new
 
 m = Mastermind.new(c, h)
 
-m.select_role
+m.asign_roles(m.ask_player_role)
 
 m.game
