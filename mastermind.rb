@@ -10,15 +10,14 @@ end
 class Player
   include Generable
 
-  attr_accessor :guess_code, :role
-  attr_reader :CODE
+  attr_accessor :guess_code, :role, :code
 
   def initialize
     @role = ''
   end
 
   def obtain_code
-    @CODE = generate_code
+    @code = generate_code
   end
 
   def enter_code
@@ -27,9 +26,7 @@ class Player
     while guess_code.length < CODE_LENGTH
       print 'Enter a color: '
       color = gets.chomp.downcase
-      if COLORS.include?(color) && !guess_code.include?(color)
-        guess_code.append(color)
-      end
+      guess_code.append(color) if COLORS.include?(color) && !guess_code.include?(color)
     end
 
     @guess_code
@@ -42,7 +39,7 @@ class Human < Player
 
   def obtain_code
     puts "Please enter a #{CODE_LENGTH} colors code"
-    @CODE = enter_code
+    @code = enter_code
   end
 end
 
@@ -56,8 +53,8 @@ class Computer < Player
     @combinations = COLORS.repeated_permutation(CODE_LENGTH).to_a
   end
 
-  def enter_code(code = [])
-    @guess_code = code
+  def enter_code(input_code = [])
+    @guess_code = input_code
     @guess_code
   end
 end
@@ -72,17 +69,17 @@ class Mastermind
   end
 
   def verify_code
-    true if guesser.guess_code.eql?(creator.CODE)
+    true if guesser.guess_code.eql?(creator.code)
   end
 
   def calculate_pegs
     @white_pegs = 0
     @red_pegs = 0
 
-    creator.CODE.each_with_index do |color, index|
+    creator.code.each_with_index do |color, index|
       if color.eql?(guesser.guess_code[index])
         @red_pegs += 1
-      elsif !color.eql?(guesser.guess_code[index]) && creator.CODE.include?(guesser.guess_code[index])
+      elsif !color.eql?(guesser.guess_code[index]) && creator.code.include?(guesser.guess_code[index])
         @white_pegs += 1
       end
     end
@@ -114,19 +111,18 @@ class Mastermind
   def game
     creator.obtain_code
 
-    if computer.role == 'guesser'
-      computer.generate_combinations
-    end
+    computer.generate_combinations if computer.role == 'guesser'
 
     @NUMBER_OF_TURNS.times do |n|
       puts "Turn #{n + 1}\n\n"
 
       if human.role == 'guesser'
-        puts "Please enter a #{creator.CODE.length} colors code"
+        puts "Please enter a #{creator.code.length} colors code"
 
         guesser.enter_code
 
       else
+        # Computer enters code
         if n.zero?
           guesser.enter_code(["red", "red", "red", "green", "green", "green"])
         else
@@ -150,7 +146,7 @@ class Mastermind
         if computer.role == 'guesser'
           # Remove combinations where a color is not in code
           guesser.guess_code.uniq.each do |color|
-            unless creator.CODE.include?(color)
+            unless creator.code.include?(color)
               guesser.combinations.reject! { |combination| combination.include?(color) }
             end
           end
@@ -158,11 +154,7 @@ class Mastermind
       end
     end
 
-    unless verify_code
-      puts "You did not guess the code\n"
-
-      puts "The creator code is #{creator.CODE}"
-    end
+    puts "You did not guess the code\nThe creator code is #{creator.code}" unless verify_code
   end
 end
 
