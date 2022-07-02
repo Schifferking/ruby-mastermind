@@ -2,8 +2,8 @@ module Generable
   CODE_LENGTH = 6
   COLORS = ['red', 'green', 'blue', 'pink', 'yellow', 'purple', 'orange', 'black', 'white', 'brown', 'gray']
 
-  def generate_code
-    COLORS.sample(CODE_LENGTH)
+  def generate_code(colors_needed = CODE_LENGTH)
+    COLORS.sample(colors_needed)
   end
 end
 
@@ -44,12 +44,25 @@ class Human < Player
 end
 
 class Computer < Player
-  attr_accessor :colors_hash
+  attr_accessor :code_guessed, :possible_colors
 
   def initialize
+    @code_guessed = [nil, nil, nil, nil, nil, nil]
+    @possible_colors = COLORS.dup
+  end
+
+  def generate_code(colors_needed = CODE_LENGTH)
+    possible_colors.sample(colors_needed)
   end
 
   def enter_code(input_code = [])
+    input_code.each_with_index do |color, index|
+      if color.nil?
+        new_color = generate_code(1).first
+        new_color = generate_code(1).first while input_code.include?(new_color)
+        input_code[index] = new_color
+      end
+    end
     @guess_code = input_code
     @guess_code
   end
@@ -62,6 +75,8 @@ class Mastermind
     @computer = computer
     @human = human
     @NUMBER_OF_TURNS = 12
+    @white_pegs = 0
+    @red_pegs = 0
   end
 
   def verify_code
@@ -73,10 +88,18 @@ class Mastermind
     @red_pegs = 0
 
     creator.code.each_with_index do |color, index|
-      if color.eql?(guesser.guess_code[index])
+      guesser_color = guesser.guess_code[index]
+      if color.eql?(guesser_color)
         @red_pegs += 1
-      elsif !color.eql?(guesser.guess_code[index]) && creator.code.include?(guesser.guess_code[index])
+        if computer.role == 'guesser'
+          # keep color on guess code
+          computer.code_guessed[index] = color
+        end
+      elsif !color.eql?(guesser_color) && creator.code.include?(guesser_color)
         @white_pegs += 1
+      elsif computer.role == 'guesser'
+        guesser.possible_colors.delete(guesser_color) unless creator.code.include?(guesser_color)
+        guesser.code_guessed[index] = nil
       end
     end
   end
@@ -120,13 +143,8 @@ class Mastermind
         guesser.enter_code
 
       else
-        # Computer enters code
-        if n.zero?
-          guesser.enter_code(guesser.generate_code)
-        else
-          # Enter new code
-          guesser.enter_code(guesser.generate_code)
-        end
+        guesser.code_guessed.shuffle! if (@red_pegs + @white_pegs) == 6
+        guesser.enter_code(guesser.code_guessed)
       end
 
       puts "\nYour guess: #{guesser.guess_code}\n"
