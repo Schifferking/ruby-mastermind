@@ -111,6 +111,14 @@ class Mastermind
   def valid_role?(input)
     '%w creator guesser'.include?(input)
   end
+
+  def obtain_human_role
+    loop do
+      print_role_prompt_message
+      input = @human.enter_input
+      return input if valid_role?(input)
+    end
+  end
 end
 
 h = Human.new
