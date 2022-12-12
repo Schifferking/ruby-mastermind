@@ -107,6 +107,10 @@ class Mastermind
   def print_role_prompt_message
     puts "Please select your role. Type 'creator' or 'guesser'"
   end
+
+  def valid_role?(input)
+    '%w creator guesser'.include?(input)
+  end
 end
 
 h = Human.new
