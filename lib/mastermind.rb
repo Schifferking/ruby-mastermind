@@ -6,9 +6,9 @@ require_relative '../lib/computer'
 class Mastermind
   attr_accessor :computer, :human, :white_pegs, :red_pegs, :creator, :guesser
 
-  def initialize(computer, human)
-    @computer = computer
-    @human = human
+  def initialize
+    @computer = Computer.new
+    @human = Human.new
     @NUMBER_OF_TURNS = 12
     @white_pegs = 0
     @red_pegs = 0
@@ -121,11 +121,7 @@ class Mastermind
   end
 end
 
-h = Human.new
-
-c = Computer.new
-
-m = Mastermind.new(c, h)
+m = Mastermind.new
 
 m.assign_roles(m.ask_player_role)
 
