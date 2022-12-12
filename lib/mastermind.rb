@@ -99,6 +99,10 @@ class Mastermind
 
     puts "You did not guess the code\nThe creator code is #{creator.code}" unless verify_code
   end
+
+  def print_welcome_message
+    puts 'Welcome to a new mastermind game!'
+  end
 end
 
 h = Human.new
