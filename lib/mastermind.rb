@@ -1,15 +1,6 @@
 require_relative '../lib/generable'
 require_relative '../lib/player'
-
-class Human < Player
-  def initialize
-  end
-
-  def obtain_code
-    puts "Please enter a #{CODE_LENGTH} colors code"
-    @code = enter_code
-  end
-end
+require_relative '../lib/human'
 
 class Computer < Player
   attr_accessor :code_guessed, :possible_colors
