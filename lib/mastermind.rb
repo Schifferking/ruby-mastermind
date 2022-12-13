@@ -12,8 +12,12 @@ class Mastermind
     puts "Please select your role. Type 'creator' or 'guesser'"
   end
 
+  def roles
+    '%w creator guesser'
+  end
+
   def valid_role?(input)
-    '%w creator guesser'.include?(input)
+    roles.include?(input)
   end
 
   def obtain_human_role
