@@ -31,4 +31,15 @@ class Mastermind
       return input if valid_role?(input)
     end
   end
+
+  def assign_roles(human_role)
+    case human_role
+    when 'creator'
+      @creator = @human
+      @guesser = Computer.new
+    when 'guesser'
+      @creator = Computer.new
+      @guesser = @human
+    end
+  end
 end
