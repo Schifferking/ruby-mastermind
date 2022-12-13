@@ -1,3 +1,5 @@
+require_relative '../lib/player'
+
 class Computer < Player
   attr_accessor :code_guessed, :possible_colors
 

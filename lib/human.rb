@@ -1,3 +1,5 @@
+require_relative '../lib/player'
+
 class Human < Player
   def initialize
   end
