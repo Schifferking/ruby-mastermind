@@ -4,6 +4,10 @@ require_relative '../lib/human'
 require_relative '../lib/computer'
 
 class Mastermind
+  def initialize
+    @human = Human.new
+  end
+
   def print_welcome_message
     puts 'Welcome to a new mastermind game!'
   end
