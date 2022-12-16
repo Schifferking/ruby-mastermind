@@ -18,6 +18,10 @@ class Mastermind
     puts "Please select your role. Type 'creator' or 'guesser'"
   end
 
+  def print_available_colors_message
+    puts "The available colors are: \"#{available_colors}\""
+  end
+
   def roles
     '%w creator guesser'
   end
