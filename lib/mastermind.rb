@@ -22,6 +22,10 @@ class Mastermind
     puts "The available colors are: \"#{available_colors}\""
   end
 
+  def print_color_prompt_message
+    puts 'Please enter a color from the list above'
+  end
+
   def roles
     '%w creator guesser'
   end
