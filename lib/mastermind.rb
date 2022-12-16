@@ -4,6 +4,8 @@ require_relative '../lib/human'
 require_relative '../lib/computer'
 
 class Mastermind
+  include Generable
+
   def initialize
     @human = Human.new
   end
@@ -43,3 +45,6 @@ class Mastermind
     end
   end
 end
+
+m = Mastermind.new
+m.print_colors_message
