@@ -44,7 +44,8 @@ class Mastermind
       @guesser = @human
     end
   end
-end
 
-m = Mastermind.new
-m.print_colors_message
+  def available_colors
+    COLORS - @creator.code
+  end
+end
