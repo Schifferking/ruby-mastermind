@@ -6,4 +6,8 @@ class Human < Player
   end
 
   def create_code; end
+
+  def add_color(color)
+    @code << color
+  end
 end
