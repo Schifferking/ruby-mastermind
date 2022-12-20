@@ -56,4 +56,8 @@ class Mastermind
   def available_colors
     COLORS - @creator.code
   end
+
+  def valid_color?(input)
+    COLORS.include?(input)
+  end
 end
