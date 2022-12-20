@@ -60,4 +60,8 @@ class Mastermind
   def valid_color?(input)
     COLORS.include?(input)
   end
+
+  def repeated_color?(color)
+    @creator.code.include?(color)
+  end
 end
