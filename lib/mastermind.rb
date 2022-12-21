@@ -64,7 +64,7 @@ class Mastermind
     loop do
       color = obtain_color
       @creator.add_color(color)
-      return if @creator.code.count == 6
+      return if @creator.code.count == CODE_LENGTH
     end
   end
 
