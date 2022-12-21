@@ -27,6 +27,10 @@ class Mastermind
     puts 'Please enter a color from the list above'
   end
 
+  def print_code_prompt_message
+    puts "Please enter a #{CODE_LENGTH} colors code"
+  end
+
   def print_current_turn
     puts "Turn no. #{@turn}"
   end
