@@ -42,6 +42,15 @@ class Mastermind
     end
   end
 
+  def obtain_color
+    loop do
+      print_available_colors_message
+      print_color_prompt_message
+      input = @human.enter_input
+      return input if valid_color?(input) && repeated_color?(input) == false
+    end
+  end
+
   def assign_roles(human_role)
     case human_role
     when 'creator'
