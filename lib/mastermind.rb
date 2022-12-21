@@ -51,6 +51,14 @@ class Mastermind
     end
   end
 
+  def create_code
+    loop do
+      color = obtain_color
+      @creator.add_color(color)
+      return if @creator.code.count == 6
+    end
+  end
+
   def assign_roles(human_role)
     case human_role
     when 'creator'
