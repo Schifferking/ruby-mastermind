@@ -9,4 +9,8 @@ class Player
   end
 
   def create_code; end
+
+  def reset_code_guess
+    @code_guess = []
+  end
 end
