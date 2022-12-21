@@ -27,6 +27,10 @@ class Mastermind
     puts 'Please enter a color from the list above'
   end
 
+  def print_current_turn
+    puts "Turn no. #{@turn}"
+  end
+
   def roles
     '%w creator guesser'
   end
