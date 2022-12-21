@@ -82,4 +82,8 @@ class Mastermind
   def repeated_color?(color)
     @creator.code.include?(color)
   end
+
+  def update_turn
+    @turn += 1
+  end
 end
