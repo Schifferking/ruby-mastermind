@@ -118,6 +118,10 @@ class Mastermind
     @turn += 1
   end
 
+  def update_white_pegs
+    @white_pegs += 1
+  end
+
   def guesser_victory?
     @red_pegs == 6
   end
