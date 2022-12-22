@@ -49,6 +49,10 @@ class Mastermind
     puts 'The guesser player won!'
   end
 
+  def print_guesser_defeat_message
+    puts 'The guesser player lost!'
+  end
+
   def roles
     '%w creator guesser'
   end
