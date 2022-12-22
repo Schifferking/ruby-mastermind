@@ -100,4 +100,8 @@ class Mastermind
   def guesser_victory?
     @red_pegs == 6
   end
+
+  def guesser_defeat?
+    @turn == 13
+  end
 end
