@@ -45,6 +45,10 @@ class Mastermind
     puts "You have #{@red_pegs} red pegs"
   end
 
+  def print_guesser_victory_message
+    puts 'The guesser player won!'
+  end
+
   def roles
     '%w creator guesser'
   end
