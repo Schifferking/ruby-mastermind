@@ -9,6 +9,8 @@ class Mastermind
   def initialize
     @human = Human.new
     @turn = 1
+    @white_pegs = 0
+    @red_pegs = 0
   end
 
   def print_welcome_message
