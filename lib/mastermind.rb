@@ -37,6 +37,10 @@ class Mastermind
     puts "Turn no. #{@turn}"
   end
 
+  def print_white_pegs_count
+    puts "You have #{@white_pegs} white pegs"
+  end
+
   def roles
     '%w creator guesser'
   end
