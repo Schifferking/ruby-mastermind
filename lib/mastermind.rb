@@ -84,10 +84,11 @@ class Mastermind
   end
 
   def create_code
+    code = []
     loop do
       color = obtain_color
-      @creator.add_color(color)
-      return if @creator.code.count == CODE_LENGTH
+      code << color
+      return code if code.length == CODE_LENGTH
     end
   end
 
