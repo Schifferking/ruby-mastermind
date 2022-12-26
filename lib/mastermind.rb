@@ -115,6 +115,10 @@ class Mastermind
     @creator.code.include?(color)
   end
 
+  def same_color(color, other_color)
+    color == other_color
+  end
+
   def update_turn
     @turn += 1
   end
