@@ -155,4 +155,11 @@ class Mastermind
   def guesser_defeat?
     @turn == 13
   end
+
+  def create_variables
+    @human = Human.new
+    @turn = 1
+    @white_pegs = 0
+    @red_pegs = 0
+  end
 end
