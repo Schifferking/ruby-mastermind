@@ -111,7 +111,7 @@ class Mastermind
   end
 
   def repeated_color?(color)
-    @creator.code.include?(color)
+    @human.code.include?(color)
   end
 
   def same_color(color, other_color)
