@@ -80,7 +80,7 @@ class Mastermind
     end
   end
 
-  def create_code
+  def obtain_code
     loop do
       color = obtain_color
       @human.code << color
