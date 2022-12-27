@@ -91,6 +91,16 @@ class Mastermind
     end
   end
 
+  def count_pegs
+    CODE_LENGTH.times do |i|
+      if same_color(@guesser.code[i], @creator.code[i])
+        update_red_pegs
+      else
+        update_white_pegs
+      end
+    end
+  end
+
   def assign_roles(human_role)
     case human_role
     when 'creator'
