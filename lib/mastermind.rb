@@ -7,7 +7,7 @@ class Mastermind
   include Generable
 
   def initialize
-    create_variables
+    set_game
   end
 
   def print_welcome_message
