@@ -159,4 +159,8 @@ class Mastermind
     @white_pegs = 0
     @red_pegs = 0
   end
+
+  def create_code
+    @creator.is_a?(Human) ? obtain_code : @creator.create_code
+  end
 end
