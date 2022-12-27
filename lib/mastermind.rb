@@ -56,7 +56,7 @@ class Mastermind
   end
 
   def roles
-    '%w creator guesser'
+    %w[creator guesser]
   end
 
   def valid_role?(input)
