@@ -163,4 +163,11 @@ class Mastermind
   def create_code
     @creator.is_a?(Human) ? obtain_code : @creator.create_code
   end
+
+  def set_game
+    create_variables
+    print_welcome_message
+    assign_roles(obtain_human_role)
+    create_code
+  end
 end
