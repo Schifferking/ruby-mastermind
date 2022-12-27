@@ -6,6 +6,6 @@ class Computer < Player
   end
 
   def make_guess
-    @code_guess += generate_code(CODE_LENGTH - code_guess.length)
+    @code += generate_code(CODE_LENGTH - @code.length)
   end
 end
