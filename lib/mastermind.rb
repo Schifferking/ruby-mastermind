@@ -46,6 +46,7 @@ class Mastermind
   def print_pegs_count
     print_white_pegs_count
     print_red_pegs_count
+    print_empty_line
   end
 
   def print_guesser_victory_message
