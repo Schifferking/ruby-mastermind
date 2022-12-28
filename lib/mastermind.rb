@@ -54,6 +54,7 @@ class Mastermind
 
   def print_guesser_defeat_message
     puts 'The guesser player lost!'
+    print_creator_code
   end
 
   def print_empty_line
