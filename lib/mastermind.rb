@@ -20,7 +20,7 @@ class Mastermind
 
   def print_available_colors_message
     puts "The available colors are: \"#{available_colors}\""
-    print_empty_space
+    print_empty_line
   end
 
   def print_color_prompt_message
@@ -56,7 +56,7 @@ class Mastermind
     puts 'The guesser player lost!'
   end
 
-  def print_empty_space
+  def print_empty_line
     puts ''
   end
 
@@ -81,6 +81,7 @@ class Mastermind
       print_available_colors_message
       print_color_prompt_message
       input = @human.enter_input
+      print_empty_line
       return input if valid_color?(input) && repeated_color?(input) == false
     end
   end
