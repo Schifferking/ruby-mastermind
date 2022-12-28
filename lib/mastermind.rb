@@ -20,6 +20,7 @@ class Mastermind
 
   def print_available_colors_message
     puts "The available colors are: \"#{available_colors}\""
+    print_empty_space
   end
 
   def print_color_prompt_message
