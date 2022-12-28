@@ -205,4 +205,14 @@ class Mastermind
     make_guess
     count_pegs
   end
+
+  def game
+    loop do
+      play_current_turn
+      return print_guesser_victory_message if guesser_victory?
+
+      set_next_turn
+      return print_guesser_defeat_message if guesser_defeat?
+    end
+  end
 end
