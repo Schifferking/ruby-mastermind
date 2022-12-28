@@ -33,6 +33,7 @@ class Mastermind
 
   def print_current_turn
     puts "Turn no. #{@turn}"
+    print_empty_line
   end
 
   def print_white_pegs_count
