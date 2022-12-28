@@ -55,6 +55,10 @@ class Mastermind
     puts 'The guesser player lost!'
   end
 
+  def print_empty_space
+    puts ''
+  end
+
   def roles
     %w[creator guesser]
   end
