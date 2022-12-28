@@ -12,7 +12,7 @@ class Player
 
   def make_guess; end
 
-  def reset_code_guess
-    @code_guess = []
+  def reset_code
+    @code = []
   end
 end
