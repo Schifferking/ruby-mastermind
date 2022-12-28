@@ -208,6 +208,7 @@ class Mastermind
   def play_current_turn
     print_current_turn
     make_guess
+    print_guesser_code
     count_pegs
   end
 
