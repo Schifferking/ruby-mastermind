@@ -192,4 +192,11 @@ class Mastermind
     assign_roles(obtain_human_role)
     create_code
   end
+
+  def set_next_turn
+    print_pegs_count
+    update_turn
+    reset_pegs
+    @guesser.reset_code
+  end
 end
