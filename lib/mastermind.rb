@@ -67,6 +67,11 @@ class Mastermind
     puts "The creator's code is: #{@creator.code.join(' ')}"
   end
 
+  def print_guesser_code
+    puts "The guesser's code is : #{@guesser.code.join(' ')}"
+    print_empty_line
+  end
+
   def roles
     %w[creator guesser]
   end
