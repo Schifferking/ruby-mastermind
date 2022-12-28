@@ -145,6 +145,11 @@ class Mastermind
     @red_pegs = 0
   end
 
+  def reset_pegs
+    reset_white_pegs
+    reset_red_pegs
+  end
+
   def guesser_victory?
     @red_pegs == 6
   end
