@@ -164,6 +164,10 @@ class Mastermind
     @creator.is_a?(Human) ? obtain_code : @creator.create_code
   end
 
+  def make_guess
+    @guesser.is_a?(Human) ? obtain_code : @guesser.make_guess
+  end
+
   def set_game
     create_variables
     print_welcome_message
