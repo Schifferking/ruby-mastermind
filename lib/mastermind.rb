@@ -199,4 +199,10 @@ class Mastermind
     reset_pegs
     @guesser.reset_code
   end
+
+  def play_current_turn
+    print_current_turn
+    make_guess
+    count_pegs
+  end
 end
