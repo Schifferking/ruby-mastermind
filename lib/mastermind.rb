@@ -60,6 +60,10 @@ class Mastermind
     puts ''
   end
 
+  def print_creator_code
+    puts "The creator's code is: #{@creator.code.join(' ')}"
+  end
+
   def roles
     %w[creator guesser]
   end
