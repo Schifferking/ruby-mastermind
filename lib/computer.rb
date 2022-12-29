@@ -15,4 +15,8 @@ class Computer < Player
   def make_guess
     @code += generate_code(CODE_LENGTH - @code.length)
   end
+
+  def add_color(color)
+    @next_guess << color
+  end
 end
