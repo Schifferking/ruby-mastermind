@@ -1,6 +1,13 @@
 require_relative '../lib/player'
 
 class Computer < Player
+  attr_reader :next_guess
+
+  def initialize
+    super
+    @next_guess = []
+  end
+
   def create_code
     @code = generate_code
   end
