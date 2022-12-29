@@ -8,6 +8,8 @@ class Player
     @code = []
   end
 
+  def calculate_colors_guessed; end
+
   def create_code; end
 
   def make_guess; end
