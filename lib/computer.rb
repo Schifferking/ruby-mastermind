@@ -22,7 +22,7 @@ class Computer < Player
   end
 
   def add_color(color)
-    @next_guess << color if @next_guess.lengh < CODE_LENGTH
+    @next_guess << color if @next_guess.length < CODE_LENGTH
   end
 
   def color_in_code?(code, color)
