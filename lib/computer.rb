@@ -13,7 +13,12 @@ class Computer < Player
   end
 
   def make_guess
-    @code += generate_code(CODE_LENGTH - @code.length)
+    @code = @next_guess
+    if @code.length == 6
+      @code.shuffle!
+    else
+      @code += generate_code(CODE_LENGTH - @code.length)
+    end
   end
 
   def add_color(color)
