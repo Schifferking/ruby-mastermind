@@ -19,4 +19,8 @@ class Computer < Player
   def add_color(color)
     @next_guess << color
   end
+
+  def color_in_code?(code, color)
+    code.include?(color)
+  end
 end
