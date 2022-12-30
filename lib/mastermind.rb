@@ -202,6 +202,7 @@ class Mastermind
     print_pegs_count
     update_turn
     reset_pegs
+    @guesser.calculate_colors_guessed(@creator.code)
     @guesser.reset_code
   end
 
