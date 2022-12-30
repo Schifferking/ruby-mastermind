@@ -13,11 +13,11 @@ class Computer < Player
   end
 
   def make_guess
-    @code = @next_guess
+    @code = @next_guess.dup
     if @code.length == CODE_LENGTH
       @code.shuffle!
     else
-      @code += generate_code(CODE_LENGTH - @code.length)
+      obtain_unique_colors
     end
   end
 
