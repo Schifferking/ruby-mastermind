@@ -8,4 +8,8 @@ module Generable
   def generate_code(colors_needed = CODE_LENGTH)
     COLORS.sample(colors_needed)
   end
+
+  def generate_color
+    COLORS.sample
+  end
 end
