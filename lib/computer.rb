@@ -14,7 +14,7 @@ class Computer < Player
 
   def make_guess
     @code = @next_guess
-    if @code.length == 6
+    if @code.length == CODE_LENGTH
       @code.shuffle!
     else
       @code += generate_code(CODE_LENGTH - @code.length)
