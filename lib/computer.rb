@@ -42,8 +42,8 @@ class Computer < Player
     CODE_LENGTH.times do |i|
       if creator_code[i] == @code[i]
         add_color(@code[i])
-      elsif color_in_code?(creator_code, @code[i])
-        add_color(@code[i])
+      else
+        add_nil
       end
     end
   end
