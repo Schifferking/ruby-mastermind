@@ -50,7 +50,7 @@ class Computer < Player
   def calculate_colors_guessed(creator_code)
     CODE_LENGTH.times do |i|
       if creator_code[i] == @code[i]
-        add_color(@code[i])
+        add_color(@code[i], i)
       else
         add_nil
       end
