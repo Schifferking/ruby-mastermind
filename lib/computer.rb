@@ -35,7 +35,7 @@ class Computer < Player
   end
 
   def add_nil
-    @next_guess << nil
+    @next_guess << nil if @next_guess.length < CODE_LENGTH
   end
 
   def color_in_code?(code, color)
