@@ -14,7 +14,7 @@ class Computer < Player
 
   def make_guess
     @code = @next_guess.dup
-    if @code.length == CODE_LENGTH
+    if shuffle_code?
       @code.shuffle!
     else
       obtain_unique_colors
@@ -22,7 +22,7 @@ class Computer < Player
   end
 
   def shuffle_code?
-    @code.any?(&:nil?)
+    @code.none?(&:nil?)
   end
 
   def add_color?(color)
