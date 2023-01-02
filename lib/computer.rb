@@ -25,11 +25,6 @@ class Computer < Player
     @code.none?(&:nil?)
   end
 
-  def add_color?(color)
-    @next_guess.length < CODE_LENGTH &&
-      color_in_code?(@next_guess, color) == false
-  end
-
   def add_color(color, index)
     @next_guess[index] = color
   end
