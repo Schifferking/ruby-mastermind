@@ -21,6 +21,10 @@ class Computer < Player
     end
   end
 
+  def shuffle_code?
+    @code.any?(&:nil?)
+  end
+
   def add_color?(color)
     @next_guess.length < CODE_LENGTH &&
       color_in_code?(@next_guess, color) == false
