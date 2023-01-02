@@ -30,8 +30,8 @@ class Computer < Player
       color_in_code?(@next_guess, color) == false
   end
 
-  def add_color(color)
-    @next_guess << color if add_color?(color)
+  def add_color(color, index)
+    @next_guess[index] = color
   end
 
   def add_nil
