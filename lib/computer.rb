@@ -30,6 +30,10 @@ class Computer < Player
     @next_guess << color if add_color?(color)
   end
 
+  def add_nil
+    @next_guess << nil
+  end
+
   def color_in_code?(code, color)
     code.include?(color)
   end
