@@ -61,7 +61,7 @@ class Computer < Player
     loop do
       new_color = generate_color
       replace_nil_element(new_color) unless color_in_code?(@code, new_color)
-      break if color_in_code?(@code, nil) == false
+      break unless color_in_code?(@code, nil)
     end
   end
 end
