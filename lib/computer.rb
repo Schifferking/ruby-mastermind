@@ -56,8 +56,8 @@ class Computer < Player
   def obtain_unique_colors
     loop do
       new_color = generate_color
-      @code << new_color unless color_in_code?(@code, new_color)
-      break if @code.length == CODE_LENGTH
+      replace_nil_element(new_color) unless color_in_code?(@code, new_color)
+      break if color_in_code?(@code, nil) == false
     end
   end
 end
