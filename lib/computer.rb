@@ -38,6 +38,11 @@ class Computer < Player
     code.include?(color)
   end
 
+  def replace_nil_element(color)
+    nil_index = @code.index(nil)
+    @code[nil_index] = color
+  end
+
   def calculate_colors_guessed(creator_code)
     CODE_LENGTH.times do |i|
       if creator_code[i] == @code[i]
