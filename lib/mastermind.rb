@@ -53,7 +53,7 @@ class Mastermind
 
   def count_pegs
     CODE_LENGTH.times do |i|
-      if same_color(@guesser.code[i], @creator.code[i])
+      if same_color?(@guesser.code[i], @creator.code[i])
         update_red_pegs
       else
         update_white_pegs
@@ -84,7 +84,7 @@ class Mastermind
     @human.code.include?(color)
   end
 
-  def same_color(color, other_color)
+  def same_color?(color, other_color)
     color == other_color
   end
 
