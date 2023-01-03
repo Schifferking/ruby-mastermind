@@ -26,6 +26,10 @@ class Mastermind
     print_empty_line
   end
 
+  def code_string(code)
+    code.join(' ')
+  end
+
   def roles
     %w[creator guesser]
   end
