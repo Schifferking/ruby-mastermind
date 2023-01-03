@@ -42,4 +42,10 @@ module Printable
   def print_red_pegs_count(red_pegs = @red_pegs)
     puts "You have #{red_pegs} red pegs"
   end
+
+  def print_pegs_count(white_pegs, red_pegs)
+    print_white_pegs_count(white_pegs)
+    print_red_pegs_count(red_pegs)
+    print_empty_line
+  end
 end

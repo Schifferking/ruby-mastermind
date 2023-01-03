@@ -12,12 +12,6 @@ class Mastermind
     set_game
   end
 
-  def print_pegs_count(white_pegs, red_pegs)
-    print_white_pegs_count(white_pegs)
-    print_red_pegs_count(red_pegs)
-    print_empty_line
-  end
-
   def print_guesser_defeat_message
     puts 'The guesser player lost!'
     print_creator_code
