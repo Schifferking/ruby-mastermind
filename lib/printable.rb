@@ -20,6 +20,11 @@ module Printable
     puts 'The guesser player won!'
   end
 
+  def print_guesser_defeat_message
+    puts 'The guesser player lost!'
+    print_creator_code(code_string(@creator.code))
+  end
+
   def print_available_colors_message(colors)
     puts "The available colors are: \"#{colors}\""
     print_empty_line

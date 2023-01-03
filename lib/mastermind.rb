@@ -12,11 +12,6 @@ class Mastermind
     set_game
   end
 
-  def print_guesser_defeat_message
-    puts 'The guesser player lost!'
-    print_creator_code(code_string(@creator.code))
-  end
-
   def print_guesser_code
     puts "The guesser's code is : #{code_string(@guesser.code)}"
     print_empty_line
