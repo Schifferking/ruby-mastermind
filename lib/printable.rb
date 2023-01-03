@@ -29,4 +29,9 @@ module Printable
     puts "Please enter a #{code_length} colors code"
     print_empty_line
   end
+
+  def print_current_turn(turn)
+    puts "Turn no. #{turn}"
+    print_empty_line
+  end
 end
