@@ -12,8 +12,8 @@ class Mastermind
     set_game
   end
 
-  def print_current_turn
-    puts "Turn no. #{@turn}"
+  def print_current_turn(turn = @turn)
+    puts "Turn no. #{turn}"
     print_empty_line
   end
 
