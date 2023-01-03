@@ -18,7 +18,7 @@ class Mastermind
   end
 
   def print_creator_code
-    puts "The creator's code is: #{@creator.code.join(' ')}"
+    puts "The creator's code is: #{code_string(@creator.code)}"
   end
 
   def print_guesser_code
