@@ -45,10 +45,6 @@ class Mastermind
     print_creator_code
   end
 
-  def print_empty_line
-    puts ''
-  end
-
   def print_creator_code
     puts "The creator's code is: #{@creator.code.join(' ')}"
   end

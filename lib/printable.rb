@@ -1,4 +1,8 @@
 module Printable
+  def print_empty_line
+    puts ''
+  end
+  
   def print_welcome_message
     puts 'Welcome to a new mastermind game!'
   end
