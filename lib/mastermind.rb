@@ -161,7 +161,7 @@ class Mastermind
   end
 
   def set_next_turn
-    print_pegs_count
+    print_pegs_count(@white_pegs, @red_pegs)
     update_turn
     reset_pegs
     @guesser.calculate_colors_guessed(@creator.code)
