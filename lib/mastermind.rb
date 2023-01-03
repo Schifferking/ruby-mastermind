@@ -77,6 +77,7 @@ class Mastermind
   end
 
   def obtain_code
+    print_code_prompt_message(CODE_LENGTH)
     loop do
       color = obtain_color
       @human.code << color
