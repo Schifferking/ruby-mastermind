@@ -24,4 +24,9 @@ module Printable
     puts "The available colors are: \"#{colors}\""
     print_empty_line
   end
+
+  def print_code_prompt_message(code_length)
+    puts "Please enter a #{code_length} colors code"
+    print_empty_line
+  end
 end
