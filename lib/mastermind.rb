@@ -12,8 +12,8 @@ class Mastermind
     set_game
   end
 
-  def print_available_colors_message
-    puts "The available colors are: \"#{available_colors}\""
+  def print_available_colors_message(colors)
+    puts "The available colors are: \"#{colors}\""
     print_empty_line
   end
 
@@ -72,7 +72,7 @@ class Mastermind
 
   def obtain_color
     loop do
-      print_available_colors_message
+      print_available_colors_message(available_colors)
       print_color_prompt_message
       input = @human.enter_input
       print_empty_line
