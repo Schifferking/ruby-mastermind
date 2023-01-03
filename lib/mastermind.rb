@@ -22,7 +22,7 @@ class Mastermind
   end
 
   def print_guesser_code
-    puts "The guesser's code is : #{@guesser.code.join(' ')}"
+    puts "The guesser's code is : #{code_string(@guesser.code)}"
     print_empty_line
   end
 
