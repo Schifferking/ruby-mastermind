@@ -14,7 +14,7 @@ class Mastermind
 
   def print_guesser_defeat_message
     puts 'The guesser player lost!'
-    print_creator_code
+    print_creator_code(code_string(@creator.code))
   end
 
   def print_creator_code(code = code_string(@creator.code))
