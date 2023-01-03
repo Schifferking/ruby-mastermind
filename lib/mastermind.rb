@@ -1,10 +1,12 @@
 require_relative '../lib/generable'
+require_relative '../lib/printable'
 require_relative '../lib/player'
 require_relative '../lib/human'
 require_relative '../lib/computer'
 
 class Mastermind
   include Generable
+  include Printable
 
   def initialize
     set_game
