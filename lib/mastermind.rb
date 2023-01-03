@@ -17,10 +17,6 @@ class Mastermind
     print_empty_line
   end
 
-  def print_color_prompt_message
-    puts 'Please enter a color from the list above'
-  end
-
   def print_code_prompt_message
     puts "Please enter a #{CODE_LENGTH} colors code"
   end
