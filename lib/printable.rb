@@ -34,4 +34,8 @@ module Printable
     puts "Turn no. #{turn}"
     print_empty_line
   end
+
+  def print_white_pegs_count(white_pegs)
+    puts "You have #{white_pegs} white pegs"
+  end
 end

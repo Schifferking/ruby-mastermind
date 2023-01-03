@@ -12,10 +12,6 @@ class Mastermind
     set_game
   end
 
-  def print_white_pegs_count(white_pegs)
-    puts "You have #{white_pegs} white pegs"
-  end
-
   def print_red_pegs_count
     puts "You have #{@red_pegs} red pegs"
   end
