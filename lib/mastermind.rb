@@ -12,7 +12,7 @@ class Mastermind
     set_game
   end
 
-  def print_current_turn(turn = @turn)
+  def print_current_turn(turn)
     puts "Turn no. #{turn}"
     print_empty_line
   end
