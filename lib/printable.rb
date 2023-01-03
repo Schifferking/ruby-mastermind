@@ -10,4 +10,8 @@ module Printable
   def print_color_prompt_message
     puts 'Please enter a color from the list above'
   end
+
+  def print_guesser_victory_message
+    puts 'The guesser player won!'
+  end
 end
