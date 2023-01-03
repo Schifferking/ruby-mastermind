@@ -17,7 +17,7 @@ class Mastermind
     print_creator_code(code_string(@creator.code))
   end
 
-  def print_creator_code(code = code_string(@creator.code))
+  def print_creator_code(code)
     puts "The creator's code is: #{code}"
   end
 
