@@ -21,7 +21,7 @@ class Mastermind
   end
 
   def print_pegs_count
-    print_white_pegs_count
+    print_white_pegs_count(@white_pegs)
     print_red_pegs_count
     print_empty_line
   end
