@@ -57,4 +57,9 @@ module Printable
   def print_creator_code(code)
     puts "The creator's code is: #{code}"
   end
+
+  def print_guesser_code(code)
+    puts "The guesser's code is : #{code}"
+    print_empty_line
+  end
 end

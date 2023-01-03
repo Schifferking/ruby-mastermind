@@ -12,11 +12,6 @@ class Mastermind
     set_game
   end
 
-  def print_guesser_code(code)
-    puts "The guesser's code is : #{code}"
-    print_empty_line
-  end
-
   def code_string(code)
     code.join(' ')
   end
