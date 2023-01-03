@@ -14,6 +14,7 @@ class Mastermind
 
   def print_code_prompt_message(code_length)
     puts "Please enter a #{code_length} colors code"
+    print_empty_line
   end
 
   def print_current_turn
