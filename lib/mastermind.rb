@@ -12,7 +12,7 @@ class Mastermind
     set_game
   end
 
-  def print_white_pegs_count
+  def print_white_pegs_count(white_pegs = @white_pegs)
     puts "You have #{@white_pegs} white pegs"
   end
 
