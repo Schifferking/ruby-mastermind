@@ -12,8 +12,8 @@ class Mastermind
     set_game
   end
 
-  def print_code_prompt_message
-    puts "Please enter a #{CODE_LENGTH} colors code"
+  def print_code_prompt_message(code_length)
+    puts "Please enter a #{code_length} colors code"
   end
 
   def print_current_turn
@@ -172,6 +172,7 @@ class Mastermind
     create_variables
     print_welcome_message
     assign_roles(obtain_human_role)
+    print_empty_line
     create_code
   end
 
