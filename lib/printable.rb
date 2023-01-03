@@ -48,4 +48,8 @@ module Printable
     print_red_pegs_count(red_pegs)
     print_empty_line
   end
+
+  def print_creator_code(code)
+    puts "The creator's code is: #{code}"
+  end
 end
