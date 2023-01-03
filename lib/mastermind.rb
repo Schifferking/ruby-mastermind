@@ -12,10 +12,6 @@ class Mastermind
     set_game
   end
 
-  def print_role_prompt_message
-    puts "Please select your role. Type 'creator' or 'guesser'"
-  end
-
   def print_available_colors_message
     puts "The available colors are: \"#{available_colors}\""
     print_empty_line
