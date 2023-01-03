@@ -5,6 +5,7 @@ module Printable
 
   def print_welcome_message
     puts 'Welcome to a new mastermind game!'
+    print_empty_line
   end
 
   def print_role_prompt_message
