@@ -12,11 +12,6 @@ class Mastermind
     set_game
   end
 
-  def print_available_colors_message(colors)
-    puts "The available colors are: \"#{colors}\""
-    print_empty_line
-  end
-
   def print_code_prompt_message
     puts "Please enter a #{CODE_LENGTH} colors code"
   end
