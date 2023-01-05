@@ -5,7 +5,8 @@ class Computer < Player
 
   def initialize
     super
-    @next_guess = Array.new(6, nil)
+    @next_guess = Array.new(CODE_LENGTH, nil)
+    @code = Array.new(CODE_LENGTH, nil)
   end
 
   def create_code
