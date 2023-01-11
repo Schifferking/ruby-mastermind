@@ -22,8 +22,8 @@ class Computer < Player
     end
   end
 
-  def shuffle_code?
-    @code.none?(&:nil?)
+  def shuffle_code?(code = @code)
+    code.none?(&:nil?)
   end
 
   def add_color(color, index)
