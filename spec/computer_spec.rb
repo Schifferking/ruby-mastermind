@@ -18,5 +18,15 @@ describe Computer do
         expect(computer_one_nil.shuffle_code?).to be false
       end
     end
+
+    context 'when there are no nil values in code' do
+      subject(:computer_zero_nil) { described_class.new }
+
+      it 'returns true' do
+        code = %w[a b c d e f]
+        result = computer_zero_nil.shuffle_code?(code)
+        expect(result).to be true
+      end
+    end
   end
 end
