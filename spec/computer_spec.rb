@@ -29,4 +29,28 @@ describe Computer do
       end
     end
   end
+
+  describe '#color_in_code?' do
+    context 'when the color is not in code' do
+      subject(:computer_color_not_code) { described_class.new }
+
+      it 'returns false' do
+        color = 'navy'
+        code = %w[red green blue white pink orange]
+        result = computer_color_not_code.color_in_code?(code, color)
+        expect(result).to be false
+      end
+    end
+
+    context 'when the color is in code' do
+      subject(:computer_color_in_code) { described_class.new }
+
+      it 'returns true' do
+        color = 'purple'
+        code = %w[brown gray purple yellow red blue]
+        result = computer_color_in_code.color_in_code?(code, color)
+        expect(result).to be true
+      end
+    end
+  end
 end
